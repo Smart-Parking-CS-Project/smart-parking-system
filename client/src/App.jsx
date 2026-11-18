@@ -1,122 +1,54 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
-
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    // מיכל ראשי: תופס את כל גובה המסך (min-h-screen), רקע אפור-כהה אלגנטי (bg-slate-900), ומרכז את התוכן
+    <div className="min-h-screen bg-slate-900 text-white flex flex-col items-center justify-center p-6" dir="rtl">
+      
+      {/* כרטיס מרכזי לעמוד הפתיחה */}
+      <div className="max-w-2xl w-full bg-slate-800 border border-slate-700 rounded-2xl p-8 shadow-2xl text-center">
+        
+        {/* אייקונים של רמזור חניה (ירוק ואדום) להמחשת המערכת */}
+        <div className="flex justify-center gap-4 mb-6">
+          <span className="w-6 h-6 rounded-full bg-green-500 shadow-lg shadow-green-500/50 animate-pulse"></span>
+          <span className="w-6 h-6 rounded-full bg-red-500 shadow-lg shadow-red-500/50"></span>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
+
+        {/* כותרת ראשית */}
+        <h1 className="text-4xl font-extrabold tracking-tight mb-4 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+          מערכת ניהול חניון חכם
+        </h1>
+
+        {/* תת-כותרת ותיאור קצר */}
+        <p className="text-slate-300 text-lg mb-8 leading-relaxed">
+          ברוכים הבאים למערכת הבקרה והניטור בזמן אמת. צפו בסטטוס החניות, עקבו אחר חיישני ה-LoRa ונהלו את תפוסת החניון בלחיצת כפתור.
+        </p>
+
+        {/* כרטיסיות מידע מהירות (תצוגה מקדימה של נתונים) */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 text-sm">
+          <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-700/50">
+            <p className="text-slate-400">חניות פנויות</p>
+            <p className="text-2xl font-bold text-green-400 mt-1">--</p>
+          </div>
+          <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-700/50">
+            <p className="text-slate-400">חניות תפוסות</p>
+            <p className="text-2xl font-bold text-red-400 mt-1">--</p>
+          </div>
+          <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-700/50">
+            <p className="text-slate-400">סטטוס חיישנים</p>
+            <p className="text-2xl font-bold text-blue-400 mt-1">מחובר</p>
+          </div>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
+
+        {/* כפתור כניסה למערכת */}
+        <button 
+          onClick={() => alert("בקרוב נעבור מכאן למפת החניון בזמן אמת!")}
+          className="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-slate-950 font-bold py-3 px-8 rounded-xl transition duration-200 shadow-lg shadow-green-500/20 cursor-pointer"
         >
-          Count is {count}
+          כניסה למפת החניון
         </button>
-      </section>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
